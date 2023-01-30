@@ -1,0 +1,78 @@
+.carousel {
+  overflow: hidden;
+}
+
+.carousel .inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
+.carousel .inner .carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background-color: green;
+  color: #fff;
+}
+
+.indicators {
+  display: flex;
+  justify-content: space-between;
+}
+
+.indicators>button {
+  margin: 5px;
+}
+
+.indicators>button.active {
+  background-color: green;
+  color: #fff;
+}
+
+
+.gallery-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+
+.slides-container {
+  display: flex;
+  overflow: auto;
+  flex: none;
+  flex-flow: row nowrap; /* sets the flex flow to row, and forbid children from wrapping */
+  scroll-snap-type: x mandatory; /* this allow us to snap the items when they are scrolled */
+  width: 100%;
+  gap: 20px;
+}
+
+.slides-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slides-container .slide {
+  scroll-snap-stop: always; /* with this user scroll slides one by one, and can't skip them */
+  scroll-snap-align: center;
+  flex: none;
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  font-weight: bold;
+  color: #fff;
+}
