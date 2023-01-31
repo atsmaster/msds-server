@@ -101,8 +101,8 @@ const CarouselView = function ({ children }) {
             </div>
             <div ref={containerWrapperRef} className="slides-container" style={{ height: `${dimens.height * 0.7}px` }} >
                 {children.map((item, i) =>
-                    <div key={item.fileThumbnailId} ref={addNode} className='slide'  style={{ height: `${dimens.height * 0.7}px` }}>
-                        <img src={item.file_path} style={{ maxWidth: '100%', objectFit: 'contain' }}  />
+                    <div key={item.fileThumbnailId} ref={addNode} className='slide' style={{ height: `${dimens.height * 0.8}px` }} >
+                        <img src={item.file_path} style={{ width: '100%', height: 'auto' }} />
                     </div>
                 )}
             </div>

@@ -112,12 +112,11 @@ class FileData {
             const team = names[0]
             const fileCtgr = names[1]
             const name = it.replace('.pdf',"")
-            // console.log("[rootToMake]",team_id, team , team_id == team  )
             this.#store.push(new FileData({  
                 teamId: parseInt(team), 
                 fileCtgrId: parseInt(fileCtgr),
                 fileNm: name,
-                filePath: pdfs[it]
+                filePath: encodeURIComponent(pdfs[it])
             }))
         })
         return this.#store.filter(item=>item.team_id == team_id);
@@ -153,7 +152,7 @@ class FileThumbnail{
                 teamId: parseInt(team), 
                 fileId: parseInt(fileCtgr),
                 fileNm: name,
-                filePath: imgs[it]
+                filePath: encodeURIComponent(imgs[it])
             }))
         })
         return this.#store.filter(item=>item.team_id == team_id);

@@ -41,7 +41,8 @@ const Pdfviewer = React.forwardRef((props, ref) => {
         eventBus: eventBus.current,
     }));
     const l10n = useRef(pdfjsViewer.NullL10n)
-
+    const { width,height } = useWindowDimensions();
+    
     const pdfLoadingTask = useRef(null)
     const pdfDocument = useRef(null)
     const pdfHistory = useRef(null)
@@ -170,7 +171,7 @@ const Pdfviewer = React.forwardRef((props, ref) => {
 
 
 
-    return <div ref={viewerContainer} id="viewerContainer" >
+    return <div ref={viewerContainer} id="viewerContainer" style={{ width: `${ (width * 0.9) - 150 }px` , maxHeight: "80%" }}>
                 <div ref={viewer} id="viewer" className="pdfViewer"></div>
            </div>
 })
