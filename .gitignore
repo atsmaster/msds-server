@@ -53,3 +53,4 @@ gradle-app.setting
 *.war
 *.prefs
 src/main/resources/static
+bin/
