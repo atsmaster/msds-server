@@ -1,8 +1,0 @@
-
-
-spring:
-  servlet:
-    multipart:
-      enabled: true
-      max-file-size: 5MB
-              

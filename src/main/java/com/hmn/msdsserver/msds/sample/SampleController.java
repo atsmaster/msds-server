@@ -25,10 +25,9 @@ public class SampleController {
 	@GetMapping("/pdftojpg")
 	public String pdftojpg(String paramStr) {		
 
-		File srcfile = new File("C:/msds-master/file/root/pdf/4_2_ARCALOY 439.pdf");
-		File trgfile = new File("C:/msds-master/file/root/pdf/4_2_ARCALOY 439.jpg");
+		File srcfile = new File("C:/msds-master/file/root/pdf/4_2_CR-13.pdf");
+		File trgfile = new File("C:/msds-master/file/root/pdf/4_2_CR-13.jpg");
 		
-		int a=10;
 		try {
 			PdfUtil.pdfToThumbnail(srcfile, trgfile, 1400, 900);
 		} catch (Exception e) {
