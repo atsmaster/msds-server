@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 import '../../assets/css/pdfviewer.css'
 
-import { Box, Button, Divider, IconButton } from '@mui/material';
+import { Box, Button, colors, Divider, IconButton } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -60,9 +60,9 @@ export default function PdfMainViewer(props) {
                 </IconButton>
             </div>
         </div>
-        <Box style={{ width: "100%", position: 'absolute', bottom: 0, left: 0 }}>
+        <Box style={{ width: "100%", position: 'absolute', bottom: 0, left: 0}}>
             <Divider />
-            <Stack direction="row"
+            <Stack direction="row"                
                 divider={<Divider orientation="vertical" flexItem />}
                 spacing={2}
                 alignItems="center"

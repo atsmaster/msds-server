@@ -70,6 +70,8 @@ public class PdfUtil {
 		graphics.setBackground(Color.WHITE);
 		graphics.drawImage(rPdfFirstPage, 0, 0, null);
 		graphics.drawImage(rPdfSecondPage, width/2, 0, null);
+		graphics.setColor(Color.gray);
+		graphics.drawLine(width / 2, 0, width / 2, height);
 		return mergedImage;
 	}
 }
