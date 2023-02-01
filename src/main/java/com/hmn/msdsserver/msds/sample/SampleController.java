@@ -38,5 +38,27 @@ public class SampleController {
 		
 		return paramStr;
 	}
+	
+	@GetMapping("/pdfstojpgs")
+	public String pdfstojpgs(String paramStr) {		
+
+		File srcfiles = new File("C:\\msds-master\\msds-server\\src\\main\\frontend\\src\\assets\\pdf\\root\\pdf");
+//		File trgfile = new File("C:/msds-master/file/root/pdf/4_2_CR-13.jpg");
+
+		
+		try {
+			for(File srcfile : srcfiles.listFiles()) {
+				String path = srcfile.getPath();
+				File trgfile = new File(path.substring(0,path.length()-3) + "jpg");
+				PdfUtil.pdfToThumbnail(srcfile, trgfile, 1400, 900);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return paramStr;
+	}
 
 }
