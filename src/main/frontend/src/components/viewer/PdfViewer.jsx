@@ -85,7 +85,7 @@ const Pdfviewer = React.forwardRef((props, ref) => {
                 annotationMode: AnnotationMode.ENABLE_FORMS,
                 useOnlyCssZoom: true
             })
-            open({ url: sample1 })
+            open({ url: path })
             isChanged = true;
         }
 

@@ -76,24 +76,24 @@ theme.typography.title = {
   fontWeight: 900,
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
-  fontSize: '1.2rem',
-  '@media (min-width:600px)': {
-    fontSize: '1.5rem',
-  },
+  fontSize: '1.7rem',
+  // '@media (min-width:600px)': {
+  //   fontSize: '1.5rem',
+  // },
   [theme.breakpoints.up('md')]: {
-    fontSize: '2.4rem',
+    fontSize: '1.7rem',
   },
 }
 theme.typography.subTitle = {
   fontWeight: 600,
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
-  fontSize: '1.0rem',
-  '@media (min-width:600px)': {
-    fontSize: '1.2rem',
-  },
+  fontSize: '1.3rem',
+  // '@media (min-width:600px)': {
+  //   fontSize: '1.2rem',
+  // },
   [theme.breakpoints.up('md')]: {
-    fontSize: '2.0rem',
+    fontSize: '1.3rem',
   },
 }
 // theme.
@@ -216,6 +216,8 @@ function DashboardContent() {
     }
   }, [location])
 
+
+
   return (<>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -281,7 +283,14 @@ function DashboardContent() {
                   variant="contained" 
                   fullWidth
                   sx={{p: 1}}
-                  onClick={()=>{navigate('/', { replace: true })}}>적용</Button>
+                  onClick={()=>{
+                    // console.log(department,group);
+                    // if (!department&&!group){
+                    //   setGlobal({ department, group})
+                    // }
+                    setGlobal({ department, group})
+                    navigate('/', { replace: true }
+                    )}}>적용</Button>
                 </Box>
               </Stack>
             </ListItem>
@@ -298,6 +307,7 @@ function DashboardContent() {
             </ListItem>
             {fileCtgrDataList.map(item =>
               <ListItem
+                style={{ paddingTop:0, paddingBottom:0}}
                 key={item.team_ctgr_id}
                 onClick={onClickSearch.bind(this, item)}>
                 <ListItemButton
