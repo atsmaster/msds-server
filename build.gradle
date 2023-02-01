@@ -62,7 +62,7 @@ task copyWebApp(type: Copy) {
 task buildReact(type: Exec) {
 	dependsOn "installReact"
 	workingDir "$webappDir"
-	inputs.dir "$webappDir"props
+	inputs.dir "$webappDir"
 	group = BasePlugin.BUILD_GROUP
 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
 		commandLine "npm.cmd", "run-script", "build"
