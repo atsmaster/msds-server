@@ -78,10 +78,10 @@ theme.typography.title = {
   letterSpacing: '-0.42px',
   fontSize: '1.2rem',
   '@media (min-width:600px)': {
-    fontSize: '1.4rem',
+    fontSize: '1.5rem',
   },
   [theme.breakpoints.up('md')]: {
-    fontSize: '1.5rem',
+    fontSize: '2.4rem',
   },
 }
 theme.typography.subTitle = {
@@ -90,10 +90,10 @@ theme.typography.subTitle = {
   letterSpacing: '-0.42px',
   fontSize: '1.0rem',
   '@media (min-width:600px)': {
-    fontSize: '1.0rem',
+    fontSize: '1.2rem',
   },
   [theme.breakpoints.up('md')]: {
-    fontSize: '1.2rem',
+    fontSize: '2.0rem',
   },
 }
 // theme.

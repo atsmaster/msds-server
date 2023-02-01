@@ -21,12 +21,10 @@ const CarouselView = function ({ children }) {
         , []);
 
     React.useEffect(() => {
-
         if (observer.current) {
             observer.current.disconnect();
         }
         const newObserver = getObserver(observer);
-
         for (const node of refs.current) {
             if (node){
                 newObserver.observe(node);
@@ -99,7 +97,7 @@ const CarouselView = function ({ children }) {
                     <Typography>Next</Typography>
                 </Button>
             </div>
-            <div ref={containerWrapperRef} className="slides-container" style={{ height: `${dimens.height * 0.7}px` }} >
+            <div ref={containerWrapperRef} className="slides-container" style={{ height: `${dimens.height * 0.8}px` }} >
                 {children.map((item, i) =>
                     <div key={item.fileThumbnailId} ref={addNode} className='slide' style={{ height: `${dimens.height * 0.8}px` }} >
                         <img src={item.file_path} style={{ width: '100%', height: 'auto' }} />

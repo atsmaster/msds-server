@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 
 import '../../assets/css/pdfviewer.css'
 
-import { Box, Button, colors, Divider, IconButton } from '@mui/material';
+import { Box, Button, Divider, IconButton } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -46,6 +46,12 @@ export default function PdfMainViewer(props) {
         }
     },[location])
 
+    const OnClickBottom = function(item){
+        console.log(item);
+        navigate('/pdf?id='+item.file_id,{replace: true})
+    }
+    console.log("bottomList",bottomList);
+
     return <React.Fragment>
         <div className='viewerRoot' >
             <div className='button-wrapper'>
@@ -60,9 +66,9 @@ export default function PdfMainViewer(props) {
                 </IconButton>
             </div>
         </div>
-        <Box style={{ width: "100%", position: 'absolute', bottom: 0, left: 0}}>
+        <Box style={{ width: "100%", position: 'absolute', bottom: 0, left: 0 }}>
             <Divider />
-            <Stack direction="row"                
+            <Stack direction="row"
                 divider={<Divider orientation="vertical" flexItem />}
                 spacing={2}
                 alignItems="center"
@@ -71,9 +77,32 @@ export default function PdfMainViewer(props) {
                     {/* {bottomList.map(item=>{
                       return <Button>해당 제품 MSDS 원본 보기</Button>
                     })} */}
-                <Button>해당 제품 MSDS 원본 보기</Button>
+                {bottomList.map(item=> {
+                    let id = searchParams.get("id")
+                    if (!id){
+                        return <></>;
+                    }
+                    const find = fileCtgrDataList.find(it=>it.file_ctgr_id == item.file_ctgr_id);
+                    //current
+                    if (item.file_id == id){
+                        if (find){
+                            return <Button disabled>{find?.file_ctgr_nm} 보는중</Button>
+                        } else {
+                            return <Button disabled>{item?.file_nm} 보는중</Button>
+                        }
+                    } else {
+                        if (find){
+                            return <Button onClick={OnClickBottom.bind(this,item)}>{find?.file_ctgr_nm} 보기</Button>
+                        } else {
+                            return <Button onClick={OnClickBottom.bind(this,item)}>{item?.file_nm} 보기</Button>
+                        }
+                    }
+                })
+
+                }
+                {/* <Button>해당 제품 MSDS 원본 보기</Button>
                 <Button>부착물1 보는중</Button>
-                <Button>해당 제품 부착물2 보기</Button>
+                <Button>해당 제품 부착물2 보기</Button> */}
             </Stack>
         </Box>
     </React.Fragment>
