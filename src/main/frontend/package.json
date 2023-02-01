@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3",
     "lodash": "^4.17.21",
     "material-icons": "^1.13.1",
     "pdfjs-dist": "^3.2.146",
@@ -24,6 +25,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-aws": "react-scripts build",
+    "build-prod": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 // import PDFs from '../assets/pdf/root/pdf'
 
 
-
 /**
  * 소속 카테고리
   1	부서	1
@@ -106,7 +105,7 @@ class FileData {
             return this.#store.filter(item=>item.team_id == team_id);
         }
         this.#store = []
-        const pdfs = importAll(require.context('../assets/pdf/root/pdf', false, /\.(pdf)$/));
+        const pdfs = importAll(require.context(process.env.REACT_APP_PDF, false, /\.(pdf)$/));
         Object.keys(pdfs).forEach(it=>{
             let names = it.split("_")
             const team = names[0]
@@ -141,7 +140,7 @@ class FileThumbnail{
         if (this.#store){
             return this.#store.filter(item=>item.team_id == team_id);
         }
-        const imgs = importAll(require.context('../assets/pdf/root/thumbnail', false, /\.(png|jpe?g|svg)$/));
+        const imgs = importAll(require.context(process.env.REACT_APP_THUMBNAIL, false, /\.(png|jpe?g|svg)$/));
         this.#store = []
         Object.keys(imgs).forEach(it=>{
             let names = it.split("_")
