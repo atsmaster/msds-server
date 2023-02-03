@@ -9,16 +9,6 @@ import * as pdfjsViewer from 'pdfjs-dist/web/pdf_viewer'
 import { useRef } from 'react';
 
 import '../../assets/css/pdfviewer.css'
-import sample from '../../assets/pdf/Get_Started_With_Smallpdf.pdf'
-import sample_bigfile from '../../assets/pdf/sample_bigfile.pdf'
-import sample1 from '../../assets/pdf/자료예제들/폴더1/1부서1그룹/1. ARCALOY 439.pdf'
-import sample2 from '../../assets/pdf/자료예제들/폴더1/1부서1그룹/4. CR-13.pdf'
-import sample3 from '../../assets/pdf/자료예제들/폴더1/1부서1그룹/8. 톨루엔.pdf'
-
-import { Box, Button, Divider, IconButton } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 import useWindowDimensions from '../../hooks/useWindowDemension.js'
 

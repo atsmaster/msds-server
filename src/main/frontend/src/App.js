@@ -57,7 +57,22 @@ const dropBox = 120;
 //     },
 //   },
 // }
+
 const theme = createTheme({
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#000000',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  },
   components: {
     MuiToolbar: {
       styleOverrides: {
@@ -72,6 +87,8 @@ const theme = createTheme({
     },
   },
 });
+
+// #263238
 theme.typography.title = {
   fontWeight: 900,
   lineHeight: 1.33,
@@ -217,12 +234,15 @@ function DashboardContent() {
   }, [location])
 
 
+  // document.body.addEventListener("scroll",function(){
+  //   document.body.scrollTop = 0;
+  // })
 
   return (<>
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       {/* side bar drawer */}
-      <AppBar position="fixed" elevation={1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, backgroundColor: '#ffffff', color: '#000000' }}>
+      <AppBar position="fixed" elevation={1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1  }}>
         <Toolbar sx={{minHeight: '36px'}}>
           <Typography variant="subTitle" noWrap component="div">
             MSDS manager
@@ -232,9 +252,16 @@ function DashboardContent() {
       <Drawer
         sx={{
           width: drawerWidth,
+          height: 'calc(100% - 64px)',
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+          [`& .MuiDrawer-paper`]: { 
+            width: drawerWidth, 
+            boxSizing: 'border-box',  
+            backgroundColor: "#f9f9f9",
+            color: "#000000"
+           },
         }}
+        
         variant="permanent"
         anchor="left">
         <Toolbar />
@@ -307,7 +334,7 @@ function DashboardContent() {
             </ListItem>
             {fileCtgrDataList.map(item =>
               <ListItem
-                style={{ paddingTop:0, paddingBottom:0}}
+                style={{ paddingTop:0, paddingBottom:0 }}
                 key={item.team_ctgr_id}
                 onClick={onClickSearch.bind(this, item)}>
                 <ListItemButton
