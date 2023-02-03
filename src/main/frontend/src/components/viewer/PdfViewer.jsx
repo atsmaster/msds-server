@@ -161,7 +161,7 @@ const Pdfviewer = React.forwardRef((props, ref) => {
 
 
 
-    return <div ref={viewerContainer} id="viewerContainer" style={{ width: `${ (width * 0.9) - 150 }px` , maxHeight: "80%" }}>
+    return <div ref={viewerContainer} id="viewerContainer" style={{ width: `${ (width * 0.8) - 150 }px`  }}>
                 <div ref={viewer} id="viewer" className="pdfViewer"></div>
            </div>
 })

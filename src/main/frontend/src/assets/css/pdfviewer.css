@@ -164,6 +164,7 @@
     /* width: 1500px; */
     /* height: 800px; */
     overflow: hidden;
+    z-index: -1;
     /* padding-left: 150px; */
   }
 

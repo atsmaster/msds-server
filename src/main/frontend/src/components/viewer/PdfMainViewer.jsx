@@ -36,11 +36,6 @@ export default function PdfMainViewer(props) {
         } else {
             const keyword = find.file_nm.split("_").pop()
             const relativeFind = list.filter(item => item.file_nm.includes(keyword))
-            // relativeFind.map(item => item.file_ctgr_id )
-            // file_ctgr_id
-            // console.log("relativeFind",relativeFind)
-            // relativeFind.map(item => )
-            // fileCtgrDataList.find(it=> it.file_ctgr_id == item.file_ctgr_id)
             setBottomList(relativeFind)
             setPdf(find)
         }

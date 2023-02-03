@@ -68,7 +68,7 @@
   scroll-snap-stop: always; /* with this user scroll slides one by one, and can't skip them */
   scroll-snap-align: center;
   flex: none;
-  width: 88%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
