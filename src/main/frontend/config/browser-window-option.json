@@ -1,0 +1,22 @@
+
+{
+    "window": {
+        "width": 800,
+        "height": 600,
+        "webPreferences": {
+            "enableRemoteModule": true
+        }
+    },
+    "Kiosk": {
+        "width": 1080,
+        "height": 1920,
+        "autoHideMenuBar": true,
+        "useContentSize": true,
+        "resizable": false,
+        "kiosk": true,
+        "webPreferences": {
+            "enableRemoteModule": true
+        }
+    }
+}
+

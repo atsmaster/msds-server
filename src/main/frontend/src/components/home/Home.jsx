@@ -2,6 +2,7 @@ import { Box, Divider, IconButton, MenuItem, Select, Typography } from '@mui/mat
 import React, { Component,useContext } from 'react';
 import { FileData,FileThumbnail } from '../../data/TeamCtgrData'
 import HomeSliderView from './HomeSliderView'
+import HomeSliderViewV2 from './HomeSliderViewV2'
 import { GlobalDataStore } from '../../context/GlobalDataStoreContext';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -20,7 +21,8 @@ export default function Home(props) {
         return <></>
     } 
     return <React.Fragment>
-        <HomeSliderView children={imgs}></HomeSliderView>
+        {/* <HomeSliderView children={imgs}></HomeSliderView> */}
+        <HomeSliderViewV2 children={imgs}></HomeSliderViewV2>
     </React.Fragment>
 }
 

@@ -110,8 +110,6 @@ const CarouselView = function ({ children }) {
 
 
 const HomeSliderView = function ({ children }) {
-
-
     return <>
         <Container maxWidth={false}>
             <CarouselView children={children}></CarouselView>

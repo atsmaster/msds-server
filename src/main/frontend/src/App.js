@@ -1,29 +1,33 @@
 
 import React, { Component, useContext, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Link as RouterLink, LinkProps as RouterLinkProps, useNavigate, BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { 
+  useLocation,  
+  HashRouter, 
+} from 'react-router-dom';
+
+import { useNavigate, BrowserRouter } from 'react-router-dom';
 import Home from './components/home/Home';
 import MyRoutes from './hooks/navigate/navigate';
 import { useSearchParams } from 'react-router-dom'
 
 import AppBar from '@mui/material/AppBar';
 import Stack from '@mui/material/Stack';
-import InputLabel from '@mui/material/InputLabel';
+
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import FormHelperText from '@mui/material/FormHelperText';
+
 
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
+
 // import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+
 import ListItemText from '@mui/material/ListItemText';
 // import MailIcon from '@mui/icons-material/Mail';
 // import MenuIcon from '@mui/icons-material/Menu';
@@ -36,27 +40,17 @@ import { useDialog } from './context/DialogProvider';
 
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+
 import DialogTitle from '@mui/material/DialogTitle';
 import { GlobalDataStore } from './context/GlobalDataStoreContext';
 import HeaderBreadCrum from './components/common/HeaderBreadCrum';
-import { purple, grey } from '@mui/material/colors';
+
 
 
 
 const drawerWidth = 150;
 const dropBox = 120;
 
-// {
-//   palette: {
-//     primary: {
-//       main: grey[500],
-//     },
-//     secondary: {
-//       main: purple[500],
-//     },
-//   },
-// }
 
 const theme = createTheme({
   palette: {
@@ -117,12 +111,19 @@ theme.typography.subTitle = {
 
 export default function App(props) {
 
-  return <React.Fragment>
-    <BrowserRouter>
+  // return <React.Fragment>
+  //   <BrowserRouter>
+  //     <ThemeProvider theme={theme}>
+  //       <DashboardContent />
+  //     </ThemeProvider>
+  //   </BrowserRouter>
+  // </React.Fragment>
+    return <React.Fragment>
+    <HashRouter>
       <ThemeProvider theme={theme}>
         <DashboardContent />
       </ThemeProvider>
-    </BrowserRouter>
+    </HashRouter>
   </React.Fragment>
 }
 

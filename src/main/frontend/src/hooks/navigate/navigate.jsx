@@ -2,7 +2,6 @@
 import React, { useRoutes } from 'react-router-dom';
 
 import Home from '../../components/home/Home'
-import PdfViewer from '../../components/viewer/PdfViewer'
 import PdfMainViewer from '../../components/viewer/PdfMainViewer'
 import SearchView from '../../components/search/SearchView'
 
