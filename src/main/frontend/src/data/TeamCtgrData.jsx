@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 /**
  * 소속 카테고리
   1	부서	1
-  2	그룹	2
+  2	공정	2
  */
 class TeamCtgrData {
     constructor({ id, nm, order }) {
@@ -18,7 +18,7 @@ class TeamCtgrData {
     static make() {
         return [
             new TeamCtgrData({ id: 1, nm: "부서", order: 1 }),
-            new TeamCtgrData({ id: 2, nm: "그룹", order: 2 }),
+            new TeamCtgrData({ id: 2, nm: "공정", order: 2 }),
         ]
     }
 }
@@ -45,8 +45,8 @@ class TeamData {
         return [
             new TeamData(1, 0, 1, '부서1'),
             new TeamData(2, 0, 1, '부서2'),
-            new TeamData(3, 2, 2, '그룹1'),
-            new TeamData(4, 2, 2, '그룹2'),
+            new TeamData(3, 2, 2, '공정1'),
+            new TeamData(4, 2, 2, '공정2'),
         ]
     }
     /**
@@ -61,9 +61,9 @@ class TeamData {
 /**
  * 자료(파일) 카테고리 데이터
  * 
-    1	MSDS 원본	 1
-    2	부착물1	     2
-    3	부착물2	     3
+    1	MSDS 원본	           1
+    2	경고표시               2
+    3	작업공정 별 관리요령    3
  *
  */
 class FileCtgrData {
@@ -75,13 +75,13 @@ class FileCtgrData {
     static make() {
         return [
             new FileCtgrData({
-                id: 1, nm: "원본", order: 1,
+                id: 1, nm: "MSDS", order: 1,
             }),
             new FileCtgrData({
-                id: 2, nm: "부착물1", order: 2,
+                id: 2, nm: "경고표지", order: 2,
             }),
             new FileCtgrData({
-                id: 3, nm: "부착물2", order: 3,
+                id: 3, nm: "작업공정 별 관리요령", order: 3,
             })
         ]
     }

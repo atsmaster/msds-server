@@ -48,7 +48,7 @@ import HeaderBreadCrum from './components/common/HeaderBreadCrum';
 
 
 
-const drawerWidth = 150;
+const drawerWidth = 200;
 const dropBox = 120;
 
 
@@ -87,27 +87,39 @@ theme.typography.title = {
   fontWeight: 900,
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
-  fontSize: '1.7rem',
+  fontSize: '2.4rem',
   // '@media (min-width:600px)': {
   //   fontSize: '1.5rem',
   // },
   [theme.breakpoints.up('md')]: {
-    fontSize: '1.7rem',
+    fontSize: '2.4rem',
   },
 }
 theme.typography.subTitle = {
   fontWeight: 600,
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
-  fontSize: '1.3rem',
+  fontSize: '2.0rem',
   // '@media (min-width:600px)': {
   //   fontSize: '1.2rem',
   // },
   [theme.breakpoints.up('md')]: {
-    fontSize: '1.3rem',
+    fontSize: '2.0rem',
   },
 }
-// theme.
+theme.typography.span = {
+  fontWeight: 600,
+  lineHeight: 1.33,
+  letterSpacing: '-0.42px',
+  fontSize: '1.6rem',
+  // '@media (min-width:600px)': {
+  //   fontSize: '1.2rem',
+  // },
+  [theme.breakpoints.up('md')]: {
+    fontSize: '1.6rem',
+  },
+}
+
 
 export default function App(props) {
 
@@ -168,7 +180,7 @@ function DashboardContent() {
         children: (
           <>
             <DialogTitle>알림</DialogTitle>
-            <DialogContent>부서 또는 그룹을 지정해주세요</DialogContent>
+            <DialogContent>부서 또는 공정을 지정해주세요</DialogContent>
             <DialogActions>
               <Button color="primary" onClick={closeDialog}>Close</Button>
             </DialogActions>
@@ -193,10 +205,10 @@ function DashboardContent() {
      * Home
      */
     if (location.pathname == '/') {
-      setBreadcrumbs(["메인화면"])
+      setBreadcrumbs(["MSDS보기"])
     } 
     /**
-     * Search
+     * Search 
      */
     else if (location.pathname == '/search') {
       const searchId = searchParams.get('id')
@@ -290,14 +302,14 @@ function DashboardContent() {
                   </FormControl>
                 </Stack>
                 <Stack>
-                  <Typography variant="span">그룹</Typography>
+                  <Typography variant="span">공정</Typography>
                   <FormControl sx={{ minWidth: dropBox }}>
                     <Select
                       value={group}
                       onChange={handleChange2}
                       displayEmpty
                       inputProps={{ 'aria-label': 'Without label' }} >
-                      <MenuItem value=""> 그룹 선택 </MenuItem>
+                      <MenuItem value=""> 공정 선택 </MenuItem>
                       {teamDataList.filter(item => item.team_up_id == department).map(item =>
                         <MenuItem key={item.team_id} value={item.team_id}>
                           {item.team_dir_nm}
@@ -309,7 +321,8 @@ function DashboardContent() {
                 <Box>
                   <Button 
                   variant="contained" 
-                  fullWidth
+                  // fullWidth
+                  style={{ width: "160px", height: "40px", fontSize: '1.5rem'}} 
                   sx={{p: 1}}
                   onClick={()=>{
                     // console.log(department,group);
@@ -326,12 +339,12 @@ function DashboardContent() {
             {/* 메인 화면 */}
             <ListItem onClick={() => { navigate('/') }}>
               <ListItemButton selected={location.pathname == '/'} sx={{ p: 0 }}>
-                <Typography variant="title" > 메인화면 </Typography>
+                <Typography variant="title" > MSDS보기 </Typography>
               </ListItemButton>
             </ListItem>
             {/* 자료검색 */}
             <ListItem>
-              <Typography variant="title"> MSDS </Typography>
+              <Typography variant="title"> 검색 </Typography>
             </ListItem>
             {fileCtgrDataList.map(item =>
               <ListItem

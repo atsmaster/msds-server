@@ -95,9 +95,9 @@ export default function PdfMainViewer(props) {
                 })
 
                 }
-                {/* <Button>해당 제품 MSDS 원본 보기</Button>
-                <Button>부착물1 보는중</Button>
-                <Button>해당 제품 부착물2 보기</Button> */}
+                {/* <Button>해당 제품 MSDS 보기</Button>
+                <Button>경고표시 보는중</Button>
+                <Button>작업공정 별 관리요청 보기</Button> */}
             </Stack>
         </Box>
     </React.Fragment>
