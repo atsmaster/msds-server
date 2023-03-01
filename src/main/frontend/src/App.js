@@ -56,7 +56,8 @@ const theme = createTheme({
   palette: {
     primary: {
       light: '#757ce8',
-      main: '#000000',
+      // main: '#000000',
+      main: '#022d55',
       dark: '#002884',
       contrastText: '#fff',
     },
@@ -82,7 +83,7 @@ const theme = createTheme({
     MuiTableCell: {
       styleOverrides: {
         root: {
-          fontSize: "32px"
+          fontSize: "20px"
         }
       }
     },
@@ -97,6 +98,14 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: "24px"
+        }
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: "15px",
+          fontWeight: 'bold'
         }
       },
     },
@@ -118,6 +127,7 @@ theme.typography.subTitle = {
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
   fontSize: '2.0rem',
+  whiteSpace: 'pre-line',
   // '@media (min-width:600px)': {
   //   fontSize: '1.2rem',
   // },
@@ -135,7 +145,7 @@ theme.typography.span = {
   },
 }
 theme.typography.h3 = {
-  fontSize: '2.6rem'
+  fontSize: '2.4rem'
 }
 
 
@@ -269,7 +279,7 @@ function DashboardContent() {
       <AppBar position="fixed" elevation={1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar sx={{ minHeight: '36px' }}>
           <Typography variant="subTitle" noWrap component="div">
-            MSDS manager
+            HOOW-VIEW
           </Typography>
         </Toolbar>
       </AppBar>

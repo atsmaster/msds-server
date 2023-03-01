@@ -81,7 +81,7 @@ class FileCtgrData {
                 id: 2, nm: "경고표지", order: 2,
             }),
             new FileCtgrData({
-                id: 3, nm: "작업공정 별 관리요령", order: 3,
+                id: 3, nm: "작업공정 별\n관리요령", order: 3,
             })
         ]
     }
