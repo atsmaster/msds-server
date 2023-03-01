@@ -134,6 +134,9 @@ theme.typography.span = {
     fontSize: '1.6rem',
   },
 }
+theme.typography.h3 = {
+  fontSize: '2.6rem'
+}
 
 
 export default function App(props) {
