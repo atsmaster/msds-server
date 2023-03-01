@@ -1,8 +1,8 @@
 
 import React, { Component, useContext, useEffect, useState } from 'react';
-import { 
-  useLocation,  
-  HashRouter, 
+import {
+  useLocation,
+  HashRouter,
 } from 'react-router-dom';
 
 import { useNavigate, BrowserRouter } from 'react-router-dom';
@@ -79,6 +79,27 @@ const theme = createTheme({
         },
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontSize: "32px"
+        }
+      }
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          fontSize: "24px"
+        }
+      }
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          fontSize: "24px"
+        }
+      },
+    },
   },
 });
 
@@ -88,9 +109,6 @@ theme.typography.title = {
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
   fontSize: '2.4rem',
-  // '@media (min-width:600px)': {
-  //   fontSize: '1.5rem',
-  // },
   [theme.breakpoints.up('md')]: {
     fontSize: '2.4rem',
   },
@@ -112,9 +130,6 @@ theme.typography.span = {
   lineHeight: 1.33,
   letterSpacing: '-0.42px',
   fontSize: '1.6rem',
-  // '@media (min-width:600px)': {
-  //   fontSize: '1.2rem',
-  // },
   [theme.breakpoints.up('md')]: {
     fontSize: '1.6rem',
   },
@@ -123,14 +138,7 @@ theme.typography.span = {
 
 export default function App(props) {
 
-  // return <React.Fragment>
-  //   <BrowserRouter>
-  //     <ThemeProvider theme={theme}>
-  //       <DashboardContent />
-  //     </ThemeProvider>
-  //   </BrowserRouter>
-  // </React.Fragment>
-    return <React.Fragment>
+  return <React.Fragment>
     <HashRouter>
       <ThemeProvider theme={theme}>
         <DashboardContent />
@@ -206,7 +214,7 @@ function DashboardContent() {
      */
     if (location.pathname == '/') {
       setBreadcrumbs(["MSDS보기"])
-    } 
+    }
     /**
      * Search 
      */
@@ -227,17 +235,17 @@ function DashboardContent() {
       let last = [...Object.values(global)].pop();
       let list = FileData.rootToMake(last)
       const searchfind = list.find(item => item.file_id == searchId)
-      if (searchfind){
+      if (searchfind) {
         const filectgr = fileCtgrDataList.find(item => item.file_ctgr_id == searchfind.file_ctgr_id)
-        if (filectgr){
-          setBreadcrumbs(["MSDS",filectgr.file_ctgr_nm,searchfind.file_nm])
+        if (filectgr) {
+          setBreadcrumbs(["MSDS", filectgr.file_ctgr_nm, searchfind.file_nm])
         } else {
-          setBreadcrumbs(["MSDS"])  
+          setBreadcrumbs(["MSDS"])
         }
       } else {
         setBreadcrumbs(["MSDS"])
       }
-    } 
+    }
     /**
      * Others
      */
@@ -255,8 +263,8 @@ function DashboardContent() {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       {/* side bar drawer */}
-      <AppBar position="fixed" elevation={1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1  }}>
-        <Toolbar sx={{minHeight: '36px'}}>
+      <AppBar position="fixed" elevation={1} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <Toolbar sx={{ minHeight: '36px' }}>
           <Typography variant="subTitle" noWrap component="div">
             MSDS manager
           </Typography>
@@ -267,14 +275,14 @@ function DashboardContent() {
           width: drawerWidth,
           height: 'calc(100% - 64px)',
           flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { 
-            width: drawerWidth, 
-            boxSizing: 'border-box',  
+          [`& .MuiDrawer-paper`]: {
+            width: drawerWidth,
+            boxSizing: 'border-box',
             backgroundColor: "#f9f9f9",
             color: "#000000"
-           },
+          },
         }}
-        
+
         variant="permanent"
         anchor="left">
         <Toolbar />
@@ -292,10 +300,16 @@ function DashboardContent() {
                       onChange={handleChange}
                       displayEmpty
                       inputProps={{ 'aria-label': 'Without label' }}>
-                      <MenuItem value=""> 부서 선택 </MenuItem>
+                      <MenuItem value="">
+                        <Typography variant='h3'>
+                          부서 선택
+                        </Typography>
+                      </MenuItem>
                       {teamDataList.filter(item => item.team_up_id == 0).map(item =>
                         <MenuItem key={item.team_id} value={item.team_id}>
-                          {item.team_dir_nm}
+                          <Typography variant='h3'>
+                            {item.team_dir_nm}
+                          </Typography>
                         </MenuItem>
                       )}
                     </Select>
@@ -309,29 +323,36 @@ function DashboardContent() {
                       onChange={handleChange2}
                       displayEmpty
                       inputProps={{ 'aria-label': 'Without label' }} >
-                      <MenuItem value=""> 공정 선택 </MenuItem>
+                      <MenuItem value="">
+                        <Typography variant='h3'>
+                          공정 선택
+                        </Typography>
+                      </MenuItem>
                       {teamDataList.filter(item => item.team_up_id == department).map(item =>
                         <MenuItem key={item.team_id} value={item.team_id}>
-                          {item.team_dir_nm}
+                          <Typography variant='h3'>
+                            {item.team_dir_nm}
+                          </Typography>
                         </MenuItem>
                       )}
                     </Select>
                   </FormControl>
                 </Stack>
                 <Box>
-                  <Button 
-                  variant="contained" 
-                  // fullWidth
-                  style={{ width: "160px", height: "40px", fontSize: '1.5rem'}} 
-                  sx={{p: 1}}
-                  onClick={()=>{
-                    // console.log(department,group);
-                    // if (!department&&!group){
-                    //   setGlobal({ department, group})
-                    // }
-                    setGlobal({ department, group})
-                    navigate('/', { replace: true }
-                    )}}>적용</Button>
+                  <Button
+                    variant="contained"
+                    // fullWidth
+                    style={{ width: "160px", height: "40px", fontSize: '1.5rem' }}
+                    sx={{ p: 1 }}
+                    onClick={() => {
+                      // console.log(department,group);
+                      // if (!department&&!group){
+                      //   setGlobal({ department, group})
+                      // }
+                      setGlobal({ department, group })
+                      navigate('/', { replace: true }
+                      )
+                    }}>적용</Button>
                 </Box>
               </Stack>
             </ListItem>
@@ -348,7 +369,7 @@ function DashboardContent() {
             </ListItem>
             {fileCtgrDataList.map(item =>
               <ListItem
-                style={{ paddingTop:0, paddingBottom:0 }}
+                style={{ paddingTop: 0, paddingBottom: 0 }}
                 key={item.team_ctgr_id}
                 onClick={onClickSearch.bind(this, item)}>
                 <ListItemButton

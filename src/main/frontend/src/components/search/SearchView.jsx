@@ -100,6 +100,7 @@ function SearchViewInputArea(props) {
                 minWidth="100px"
                 gutterBottom> 제품명 검색 </Typography>
             <Input
+                variant="h5"
                 ref={inputRef}
                 placeholder="코로나 전담 병원, 재택치료 검색"
                 value={searchValue}
