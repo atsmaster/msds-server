@@ -146,7 +146,7 @@ function SearchViewGrid(props) {
                 </TableBody>
             </Table>
             <Stack spacing={2} >
-                <Pagination count={10} variant="outlined" shape="rounded" sx={{ margin: "0 auto" }} />
+                <Pagination count={1} variant="outlined" shape="rounded" sx={{ margin: "0 auto" }} />
             </Stack>
         </>
     }
